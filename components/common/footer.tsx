@@ -1,26 +1,23 @@
-// Copyright Ayush Singh 2021,2022. All Rights Reserved.
-// Project: folio
-// Author contact: https://www.linkedin.com/in/alphaayush/
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
 import { EMAIL, MENULINKS, SOCIAL_LINKS } from "../../constants";
 import Image from "next/image";
 import Button, { ButtonTypes } from "./button";
 
 const Footer = () => {
   const renderSocialIcons = (): React.ReactNode => {
-    return Object.keys(SOCIAL_LINKS).map((el: keyof typeof SOCIAL_LINKS) => (
-      <a
-        href={SOCIAL_LINKS[el]}
-        key={el}
-        className="link hover:opacity-80 duration-300 md:px-2 px-1"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <Image src={`/social/${el}.svg`} alt={el} width={40} height={40} />
-      </a>
-    ));
+    const allowed = ["github", "instagram", "linkedin"];
+    return Object.keys(SOCIAL_LINKS)
+      .filter((key) => allowed.includes(key))
+      .map((el: keyof typeof SOCIAL_LINKS) => (
+        <a
+          href={SOCIAL_LINKS[el]}
+          key={el}
+          className="link hover:opacity-80 duration-300 md:px-2 px-1"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Image src={`/social/${el}.svg`} alt={el} width={40} height={40} />
+        </a>
+      ));
   };
 
   const renderFooterContent = (): React.ReactNode => (
@@ -38,22 +35,19 @@ const Footer = () => {
             target: "_blank",
             rel: "noreferrer",
           }}
-          href="/Ayush_Resume.pdf"
+          href="/Resume6.0.pdf"
         ></Button>
         <Button
           classes="ml-3"
           type={ButtonTypes.WHITE}
           name="Let's Talk"
-          href={SOCIAL_LINKS.topmate}
+          href={`mailto:${EMAIL}`}
           otherProps={{
             target: "_blank",
             rel: "noreferrer",
           }}
         ></Button>
       </div>
-      <h2 className="text-center text-sm sm:text-base mt-8">
-        Designed and Developed with ❤️ by Ayush
-      </h2>
     </>
   );
 

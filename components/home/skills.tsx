@@ -1,8 +1,4 @@
-// Copyright Ayush Singh 2021,2022. All Rights Reserved.
-// Project: folio
-// Author contact: https://www.linkedin.com/in/alphaayush/
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
+
 
 import { MENULINKS, SKILLS } from "../../constants";
 import Image from "next/image";
@@ -127,6 +123,7 @@ const SkillsSection = () => {
             </div>
             <div>{renderSkillColumn("Other Skills", SKILLS.other)}</div>
           </div>
+          <div>{renderSkillColumn("BACKEND", SKILLS.backend)}</div>
         </div>
       </div>
     </section>

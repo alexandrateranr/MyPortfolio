@@ -1,8 +1,3 @@
-// Copyright Ayush Singh 2021,2022. All Rights Reserved.
-// Project: folio
-// Author contact: https://www.linkedin.com/in/alphaayush/
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
 
 import { METADATA } from "../constants";
 import Head from "next/head";
@@ -65,7 +60,7 @@ export default function Home() {
   }, [timer]);
 
   const renderBackdrop = (): React.ReactNode => (
-    <div className="fixed top-0 left-0 h-screen w-screen bg-gray-900 -z-1"></div>
+    <div className="fixed top-0 left-0 h-screen w-screen bg-black/40 -z-1"></div>
   );
 
   return (
