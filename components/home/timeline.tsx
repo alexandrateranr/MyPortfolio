@@ -163,9 +163,10 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
     const logoString = image
       ? `<img src='${image}' class='h-8 mb-2' loading='lazy' width='100' height='32' alt='${image}' />`
       : "";
-    const subtitleString = subtitle
-      ? `<p class='text-xl mt-2 text-gray-200 font-medium tracking-wide'>${subtitle}</p>`
+      const subtitleString = subtitle
+      ? `<p class='text-xl mt-2 text-gray-200 font-medium tracking-wide'>${subtitle.replace(/'/g, "&#39;")}</p>`
       : "";
+    
 
     return `<foreignObject x=${foreignObjectX} y=${foreignObjectY} width=${foreignObjectWidth} 
         height=${separation}>${logoString}<p class='${titleSizeClass}'>${title}</p>${subtitleString}</foreignObject>`;
@@ -461,7 +462,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
     >
       <Image
         className="w-full h-8"
-        src="/timeline/toolbar.svg"
+        src="/timeline/title-bar.svg"
         alt="Title bar"
         width={644}
         height={34}
